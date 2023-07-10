@@ -1,0 +1,267 @@
+@import url('https://fonts.cdnfonts.com/css/typograph-pro');
+
+
+*. *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'TYPOGRAPH PRO', sans-serif;
+    margin: 0;
+    background: #191B21;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(./bkg-img.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+
+
+
+.calculator-grid button {
+    font-family: 'TYPOGRAPH PRO', sans-serif;
+    background: transparent;
+    border: none;
+    color: #FFCC99;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 10000;
+    
+
+}
+
+.calculator-grid .num {
+    font-family: 'TYPOGRAPH PRO', sans-serif;
+    background: transparent;
+    border: none;
+    color: #FFCC99;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    
+
+}
+
+.calculator-grid .num::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    opacity: 10%;
+    border-radius: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background:#43464E;
+    transition: ease-in-out  all  .7s;
+    z-index: -1;
+}
+
+.calculator-grid .num:hover:after {
+    opacity: 50%;
+}
+
+
+
+
+.calculator-grid .allclear {
+    color: #33CC99;
+    /* background: red; */
+    border-radius: 70px;
+    padding: 1px;
+    position: relative;
+    z-index: 10000;
+    transition: all ease-in-out .7s;
+    
+}
+
+.calculator-grid .allclear::after{
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    opacity: 10%;
+    border-radius: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #33CC99;
+    transition: ease-in-out  all  .7s;
+    z-index: -1;
+
+}
+
+.calculator-grid .allclear:hover::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    opacity: 30%;
+    border-radius: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #33CC99;
+}
+
+
+.calculator-grid {
+    display: grid;
+    grid-auto-flow: row;
+    /* grid-template-columns: repeat(4, 5rem); */
+    /* grid-template-rows: minmax(7rem, auto), repeat(5, 6rem); */
+    grid-template-rows: 250px auto;
+    height: 630px;
+    background: #22252E;
+    border-radius: 30px;
+    overflow: hidden;
+    color: white;
+    transition: all ease .2s;
+}
+
+
+h1 {
+
+    color: white;
+    z-index: 1000000;
+}
+
+.top-elements {
+    grid-column: 1 / -1;
+    /* background: blue; */
+    color: white;
+    width: 100%;
+    
+
+}
+
+.top-elements .my-title {
+    margin-top: 15px;
+    font-weight: 600;
+    text-transform: lowercase;
+    /* background: red; */
+    display: flex;
+    justify-content: center;
+}
+
+.top-elements .numbers {
+    /* margin-top: 30px; */
+    /* background: red; */
+    display: flex;
+    width: 250px;
+    height: 150px;
+    flex-direction: column;
+    justify-content: right;
+    flex-wrap: wrap;
+    word-wrap: break-word;
+    word-break: break-all;
+    /* gap: 15px; */
+    text-align: right;
+    padding: 20px;
+    overflow: hidden;
+
+}
+
+
+.top-elements .numbers .previous-operand {
+    color: #676A70;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.top-elements .numbers .current-operand {
+    font-weight: 700;
+    font-size: 35px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.top-elements .my-title .namm {
+    background: #252C34;
+    flex-wrap: no-wrap;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 12px;
+    color: #33CC99;
+  
+}
+
+
+
+.top-elements .my-title .namm span {
+    color: #FFCC99;
+}
+
+
+.bottom-top-btns {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(4, 4.5rem);
+    justify-content: space-between;
+    column-gap: 9rem;
+    width: 100%;
+}
+
+.bottom-top-btns button ion-icon {
+    font-size: 25px;
+    color: #FF537B;
+    position: relative;
+
+} 
+
+
+
+  
+
+
+.calculator-grid .btns {
+    background: #2E313A;
+    display: grid;
+    grid-template-columns: repeat(4, 4.5rem);
+    grid-template-rows: minmax(7rem, auto), repeat(5, 6rem);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    padding: 15px;
+
+}
+
+.calculator-grid .btns .operand {
+    color: #FF537B;
+    position: relative;
+}
+
+.calculator-grid .btns .operand::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    opacity: 10%;
+    border-radius: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #FF7595;
+    transition: ease-in-out  all  .7s;
+    z-index: -1;
+}
+
+.calculator-grid .btns .operand:hover::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    opacity: 30%;
+    border-radius: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #FF7595;
+}

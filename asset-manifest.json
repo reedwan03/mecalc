@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/mecalc/static/css/main.ddd6a691.css",
+    "main.js": "/mecalc/static/js/main.c3f6f7af.js",
+    "static/media/bkg-img.png": "/mecalc/static/media/bkg-img.e18fa235beed6b292062.png",
+    "index.html": "/mecalc/index.html",
+    "main.ddd6a691.css.map": "/mecalc/static/css/main.ddd6a691.css.map",
+    "main.c3f6f7af.js.map": "/mecalc/static/js/main.c3f6f7af.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ddd6a691.css",
+    "static/js/main.c3f6f7af.js"
+  ]
+}

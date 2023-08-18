@@ -13,6 +13,8 @@ export const ACTIONS = {
 };
 
 function reducer(state, { type, payload }) {
+  console.log(state.currentOperand, state.previousOperand, payload.operation);
+
   switch (type) {
     case ACTIONS.ADD_DIGIT:
       if (state.overwrite) {
@@ -22,17 +24,45 @@ function reducer(state, { type, payload }) {
           overwrite: false,
         };
       }
+
+      if (payload.digit === "." && state.currentOperand == null) {
+        return {
+          ...state,
+          currentOperand: ` 0${payload.digit}`,
+        };
+      }
+
       if (payload.digit === "0" && state.currentOperand === "0") return state;
       if (payload.digit === "." && state.currentOperand.includes("."))
         return state;
+
       return {
         ...state,
         currentOperand: `${state.currentOperand || ""}${payload.digit}`,
       };
 
     case ACTIONS.CHOOSE_OPERATION:
-      if (state.currentOperand == null && state.previousOperand == null)
-        return state;
+      if (
+        state.currentOperand == null &&
+        state.previousOperand == null &&
+        payload.operation === "-"
+      ) {
+        return {
+          ...state,
+          currentOperand: `${payload.operation}`,
+        };
+      }
+
+      if (
+        state.currentOperand == null &&
+        state.previousOperand == null &&
+        payload.operation == "-"
+      ) {
+        return {
+          ...state,
+          currentOperand: payload.operation,
+        };
+      }
 
       if (state.currentOperand == null) {
         return {
@@ -40,6 +70,7 @@ function reducer(state, { type, payload }) {
           operation: payload.operation,
         };
       }
+
       if (state.previousOperand == null) {
         return {
           ...state,
@@ -100,6 +131,7 @@ function reducer(state, { type, payload }) {
 }
 
 function evaluate({ currentOperand, previousOperand, operation }) {
+  console.log(currentOperand);
   const prev = parseFloat(previousOperand);
   const curr = parseFloat(currentOperand);
   if (isNaN(prev) || isNaN(curr)) return "";

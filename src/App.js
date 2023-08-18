@@ -161,6 +161,7 @@ const INTEGET_FORMATTER = new Intl.NumberFormat("en-us", {
 });
 
 function formatOperand(operand) {
+  if (operand === "-") return "-";
   if (operand == null) return;
   const [integer, decimal] = operand.split(".");
   if (decimal == null) return INTEGET_FORMATTER.format(integer);
